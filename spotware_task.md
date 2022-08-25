@@ -236,11 +236,11 @@ The scheduler is a cyclic entity that works according to the scenario described 
 
 Step 1 Scheduler constantly checks if nonWorkingDaysSchedule.updateSymbolIntervalDate == now() of records where nonWorkingDaysSchedule.status != "Done".
 
-Step 1.1 When equality is found, and nonWorkingDaysSchedule.status = "Created" the process from step 2 is started.
+When equality is found, and nonWorkingDaysSchedule.status = "Created" the process from step 2 is started.
 
-Step 1.2 When equality is found, and nonWorkingDaysSchedule.status = "Planned" the process from step 6 is started.
+When equality is found, and nonWorkingDaysSchedule.status = "Planned" the process from step 6 is started.
 
-Step 1.3 When equality is found, and nonWorkingDaysSchedule.status = "In progress" the process from step 9 is started.
+When equality is found, and nonWorkingDaysSchedule.status = "In progress" the process from step 9 is started.
 
 Step 2. Scheduler requests values of objectSymbolId.objectInterval.startSecond and objectSymbolId.objectInterval.endSecond and updates of the following parameters accordingly:
 
@@ -253,34 +253,34 @@ Step 3. Scheduler compares values of the following parameters:
 
 Step 3.1 If nonWorkingDaysSchedule.endSecondBase >= nonWorkingDaysSchedule.endSecond
 
-Step 3.1.1 Scheduler updates the value of the following parameters:
+Scheduler updates the value of the following parameters:
 
     ```
     nonWorkingDaysSchedule.isItInWorkingDays = false
     ```
 
-Step 3.1.2. Go to step 4.
+Go to step 4.
 
 Step 3.2. If nonWorkingDaysSchedule.endSecondBase < nonWorkingDaysSchedule.endSecond
 
-Step 3.2.1 Scheduler updates the value of the following parameters:
+Scheduler updates the value of the following parameters:
 
     ```
     nonWorkingDaysSchedule.isItInWorkingDays = true
     ```
 
-Step 3.2.2 Go to step 5.
+Go to step 5.
 
 Step 4 Scheduler
 
-Step 4.1 Updates the value of the following parameters:
+Updates the value of the following parameters:
 
   ```
   nonWorkingDaysSchedule.status = "planned"
   nonWorkingDaysSchedule.updateSymbolIntervalDate = nonWorkingDaysSchedule.startNonWorkingDayDate
   ```
 
-Step 4.2 Go to step 1.
+Go to step 1.
 
 Step 5 Scheduler:
 
@@ -316,7 +316,7 @@ Step7.1 Updates the value of the following parameters:
   onWorkingDaysSchedule.updateSymbolIntervalDate = nonWorkingDaysSchedule.endNonWorkingDayDate
   ```
 
-Step 7.2 Go to step 1.
+Go to step 1.
 
 Step 8  Scheduler:
 
@@ -340,19 +340,19 @@ Step 8.4 Go to step 1.
 
 Step 9 Scheduler checks nonWorkingDaysSchedule.isItInWorkingDays value
 
-Step 9.1 If nonWorkingDaysSchedule.isItInWorkingDays == false then go to 10
+If nonWorkingDaysSchedule.isItInWorkingDays == false then go to 10
 
-Step 9.2 If nonWorkingDaysSchedule.isItInWorkingDays == true then go to 11
+If nonWorkingDaysSchedule.isItInWorkingDays == true then go to 11
 
 Step 10 Scheduler
 
-Step 10.1 Updates the value of the following parameters:
+Updates the value of the following parameters:
 
   ```
   nonWorkingDaysSchedule.status = "Done"
   ```
 
-Step 10.2 Go to step 1.
+Go to step 1.
 
 Step 11 Scheduler
 
