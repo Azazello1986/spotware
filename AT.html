@@ -1,0 +1,219 @@
+<table border="1">
+ <tr>
+  <th>Role</th>
+  <th>Action</th>
+  <th>Result</th>
+ </tr>
+ <tr>
+ <td colspan =3>nonWorkingDaysScheduleCreate</td>
+ </tr>
+ <tr>
+  <td>External App</td>
+  <td>Sends nonWorkingDaysScheduleCreate{%some_correct_objectSymbolId%, %some_correct_date>=now()%}  </td>
+  <td> Success<br>
+  1. nonWorkingDaysScheduleCreate.Validation passed<br>
+  2. A record was created in nonWorkingDaysSchedule according to the passed parameters<br>
+  3. Server responded with the following parameters{"201", "Success","{nonWorkingDaysSchedule.id, nonWorkingDaysSchedule.startNonWorkingDayDate, nonWorkingDaysSchedule.endNonWorkingDayDate, nonWorkingDaysSchedule.status}"}<br>
+  4. A log entry was created according to the passed parameters </td>
+ </tr>
+ <tr>
+  <td>External App</td>
+  <td>Sends nonWorkingDaysScheduleCreate{%some_correct_objectSymbolId%}</td>
+  <td>Error<br>
+  1. Server responded to the request with the following parameters {"400", "Miss parameters"}<br>
+  2. A log entry was created according to the passed parameters</td>
+ </tr>
+ <tr>
+  <td>External App</td>
+  <td>Sends nonWorkingDaysScheduleCreate{%some_uncorrect_objectSymbolId%, %some_date>now()%}</td>
+  <td>Error<br>
+  1. Server responded to the request with the following parameters {"404", "Symbol not found"}<br>
+  2. A log entry was created according to the passed parameters</td>
+ </tr>
+ <tr>
+  <td>External App</td>
+  <td>Sends nonWorkingDaysScheduleCreate{%some_correct_objectSymbolId%, %some_uncorrect_date%}</td>
+  <td>Error<br>
+  1. Server responded to the request with the following parameters {"400", "Incorrect date"}<br>
+  2. A log entry was created according to the passed parameters</td>
+ </tr>
+ <tr>
+  <td>External App</td>
+  <td>Sends nonWorkingDaysScheduleCreate{%some_correct_objectSymbolId%, %some_date<now()%}</td>
+  <td>Error<br>
+  1. Server responded to the request with the following parameters {"406", "Date not available"}<br>
+  2. A log entry was created according to the passed parameters</td>
+ </tr>
+ <tr>
+  <td>External App</td>
+  <td>Sends nonWorkingDaysScheduleCreate{%some_correct_objectSymbolId%, %some_exist_date>=now()%}</td>
+  <td>Error<br>
+  1. Server responded to the request with the following parameters {"409", "Exist"}<br>
+  2. A log entry was created according to the passed parameters</td>
+ </tr>
+ <tr>
+ <td colspan =3>nonWorkingDaysScheduleGet</td>
+ </tr>
+ <tr>
+  <td>External App</td>
+  <td>Sends nonWorkingDaysScheduleGet{%some_correct_objectSymbolId%, %some_correct_status%}  </td>
+  <td> Success<br>
+  1. nonWorkingDaysScheduleGet.Validation passed<br>
+  2. Server responded with the following parameters{nonWorkingDaysSchedule.objectSymbolId[{nonWorkingDaysSchedule.id, nonWorkingDaysSchedule.startNonWorkingDayDate, nonWorkingDaysSchedule.endNonWorkingDayDate, nonWorkingDaysSchedule.status} ... {nonWorkingDaysSchedule.id, nonWorkingDaysSchedule.startNonWorkingDayDate, nonWorkingDaysSchedule.endNonWorkingDayDate, nonWorkingDaysSchedule.status}]}<br>
+  3. A log entry was created according to the passed parameters </td>
+ </tr>
+ <tr>
+  <td>External App</td>
+  <td>Sends nonWorkingDaysScheduleGet{%some_correct_objectSymbolId%}  </td>
+  <td> Success<br>
+  1. nonWorkingDaysScheduleGet.Validation passed<br>
+  2. Server responded with the following parameters{nonWorkingDaysSchedule.objectSymbolId[{nonWorkingDaysSchedule.id, nonWorkingDaysSchedule.startNonWorkingDayDate, nonWorkingDaysSchedule.endNonWorkingDayDate, nonWorkingDaysSchedule.status} ... {nonWorkingDaysSchedule.id, nonWorkingDaysSchedule.startNonWorkingDayDate, nonWorkingDaysSchedule.endNonWorkingDayDate, nonWorkingDaysSchedule.status}]}<br>
+  3. A log entry was created according to the passed parameters </td>
+ </tr>
+ <tr>
+  <td>External App</td>
+  <td>Sends nonWorkingDaysScheduleGet{%some_correct_status%}  </td>
+  <td> Error<br>
+  1. Server responded to the request with the following parameters {"400", "Miss parameters"}<br>
+  2. A log entry was created according to the passed parameters </td>
+ </tr>
+ <tr>
+  <td>External App</td>
+  <td>Sends nonWorkingDaysScheduleGet{%some_incorrect_objectSymbolId, %some_correct_status%}  </td>
+  <td> Error<br>
+  1. Server responded to the request with the following parameters {"404", "Symbol not found"}<br>
+  2. A log entry was created according to the passed parameters</td>
+ </tr>
+ <tr>
+  <td>External App</td>
+  <td>Sends nonWorkingDaysScheduleGet{%some_correct_objectSymbolId, %some_incorrect_status%}  </td>
+  <td> Error<br>
+  1. Server responded to the request with the following parameters {"400", "Incorrect status"}<br>
+  2. A log entry was created according to the passed parameters</td>
+ </tr>
+ <tr>
+ <td colspan =3>nonWorkingDaysScheduleUpdate</td>
+ </tr>
+ <tr>
+  <td>External App</td>
+  <td>Sends nonWorkingDaysScheduleUpdate{%some_correct_id%, %some_correct_date>=now()%}  </td>
+  <td> Success<br>
+  1. nonWorkingDaysScheduleUpdate.Validation passed<br>
+  2. A record was updated in nonWorkingDaysSchedule according to the passed parameters<br>
+  3. Server responded with the following parameters{"200", "Success","{nonWorkingDaysSchedule.id, nonWorkingDaysSchedule.startNonWorkingDayDate, nonWorkingDaysSchedule.endNonWorkingDayDate, nonWorkingDaysSchedule.status}"}<br>
+  4. A log entry was created according to the passed parameters </td>
+ </tr>
+ <tr>
+  <td>External App</td>
+  <td>Sends nonWorkingDaysScheduleUpdate{%some_correct_id%}  </td>
+  <td> Error<br>
+  1. Server responded to the request with the following parameters {"400", "Miss parameters"}<br>
+  2. A log entry was created according to the passed parameters </td>
+ </tr>
+ <tr>
+  <td>External App</td>
+  <td>Sends nonWorkingDaysScheduleUpdate{%some_incorrect_id%, %some_correct_date>=now()%}  </td>
+  <td> Error<br>
+  1. Server responded to the request with the following parameters {"404", "id not found"}<br>
+  2. A log entry was created according to the passed parameters </td>
+ </tr>
+ <tr>
+  <td>External App</td>
+  <td>Sends nonWorkingDaysScheduleUpdate{%some_correct_id%, %some_incorrect_date>=now()%}  </td>
+  <td> Error<br>
+  1. Server responded to the request with the following parameters {"400", "Incorrect date"}<br>
+  2. A log entry was created according to the passed parameters </td>
+ </tr>
+ <tr>
+  <td>External App</td>
+  <td>Sends nonWorkingDaysScheduleUpdate{%some_correct_id%, %some_correct_date<now()%}  </td>
+  <td> Error<br>
+  1. Server responded to the request with the following parameters {"406", "Date not available"}<br>
+  2. A log entry was created according to the passed parameters </td>
+ </tr>
+ <tr>
+  <td>External App</td>
+  <td>Sends nonWorkingDaysScheduleUpdate{%some_correct_id_planned%, %some_correct_date>=now()%}  </td>
+  <td> Error<br>
+  1. Server responded to the request with the following parameters {"403", "Non-working day not updatable"}<br>
+  2. A log entry was created according to the passed parameters </td>
+ </tr>
+ <tr>
+ <td colspan =3>nonWorkingDaysScheduleRemove</td>
+ </tr>
+ <tr>
+  <td>External App</td>
+  <td>Sends nonWorkingDaysScheduleRemove{%some_correct_id%}  </td>
+  <td> Success<br>
+  1. nonWorkingDaysScheduleRemove.Validation passed<br>
+  2. A record was deleted in nonWorkingDaysSchedule according to the passed id<br>
+  3. Server responded with the following parameters{"200", "Success", "nonWorkingDaysSchedule.id"}<br>
+  4. A log entry was created according to the passed parameters </td>
+ </tr>
+ <tr>
+  <td>External App</td>
+  <td>Sends nonWorkingDaysScheduleRemove{%some_incorrect_id%}  </td>
+  <td> Error<br>
+  1. Server responded to the request with the following parameters {"404", "id not found"}<br>
+  2. A log entry was created according to the passed parameters </td>
+ </tr>
+ <tr>
+  <td>External App</td>
+  <td>Sends nonWorkingDaysScheduleRemove{%some_correct_id_planned%}  </td>
+  <td> Error<br>
+  1. Server responded to the request with the following parameters {"403", "Non-working day not removable"}<br>
+  2. A log entry was created according to the passed parameters </td>
+ </tr>
+ <tr>
+ <td colspan =3>nonWorkingDaysScheduler</td>
+ </tr>
+ <tr>
+  <td>Scheduler</td>
+  <td>Request and get values of objectSymbolId.objectInterval.startSecond and objectSymbolId.objectInterval.endSecond </td>
+  <td> Success<br>
+  1. Scheduler get values of objectSymbolId.objectInterval.startSecond and objectSymbolId.objectInterval.endSecond<br>
+  2. Scheduler updated nonWorkingDaysSchedule.startSecondBase and nonWorkingDaysSchedule.endSecondBase with passed parameters<br>
+  3. A log entry was created according to the passed parameters </td>
+ </tr>
+ <tr>
+  <td>Scheduler</td>
+  <td>Request and  not get values of objectSymbolId.objectInterval.startSecond and objectSymbolId.objectInterval.endSecond </td>
+  <td> Error<br>
+  1. Scheduler  not get values of objectSymbolId.objectInterval.startSecond and objectSymbolId.objectInterval.endSecond<br>
+  2. Scheduler not updated nonWorkingDaysSchedule.startSecondBase and nonWorkingDaysSchedule.endSecondBase with passed parameters<br>
+  3. A log entry was created according to the passed parameters </td>
+ </tr>
+ <tr>
+  <td>Scheduler</td>
+  <td>Request and update value of objectSymbolId.objectInterval.endSecond </td>
+  <td> Success<br>
+  1. Scheduler update value of objectSymbolId.objectInterval.endSecond<br>
+  2. Scheduler update nonWorkingDaysSchedule.updateSymbolIntervalDate and nonWorkingDaysSchedule.status with passed parameters<br>
+  3. A log entry was created according to the passed parameters </td>
+ </tr>
+ <tr>
+  <td>Scheduler</td>
+  <td>Request and not update value of objectSymbolId.objectInterval.endSecond </td>
+  <td> Error<br>
+  1. Scheduler not update value of objectSymbolId.objectInterval.endSecond<br>
+  2. Scheduler not update nonWorkingDaysSchedule.updateSymbolIntervalDate and nonWorkingDaysSchedule.status with passed parameters<br>
+  3. A log entry was created according to the passed parameters </td>
+ </tr>
+ <tr>
+  <td>Scheduler</td>
+  <td>Request and update value of objectSymbolId.objectInterval.startSecond </td>
+  <td> Success<br>
+  1. Scheduler update value of objectSymbolId.objectInterval.startSecond<br>
+  2. Scheduler update nonWorkingDaysSchedule.status with passed parameters<br>
+  3. A log entry was created according to the passed parameters </td>
+ </tr>
+ <tr>
+  <td>Scheduler</td>
+  <td>Request and not update value of objectSymbolId.objectInterval.startSecond </td>
+  <td> Error<br>
+  1. Scheduler not update value of objectSymbolId.objectInterval.startSecond<br>
+  2. Scheduler not update nonWorkingDaysSchedule.status with passed parameters<br>
+  3. A log entry was created according to the passed parameters </td>
+ </tr>
+
+</table>
