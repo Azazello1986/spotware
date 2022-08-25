@@ -249,7 +249,9 @@ nonWorkingDaysSchedule.endSecondBase = objectInterval.endSecond
 
 
 Step 3. Scheduler compares values of the following parameters:
+
   Step 3.1 If nonWorkingDaysSchedule.endSecondBase >= nonWorkingDaysSchedule.endSecond
+
     Step 3.1.1 Scheduler updates the value of the following parameters:
 
     ```
@@ -259,7 +261,9 @@ Step 3. Scheduler compares values of the following parameters:
     Step 3.1.2. Go to step 4.
 
   Step 3.2. If nonWorkingDaysSchedule.endSecondBase < nonWorkingDaysSchedule.endSecond
+
     Step 3.2.1 Scheduler updates the value of the following parameters:
+
     ```
     nonWorkingDaysSchedule.isItInWorkingDays = true
     ```
@@ -267,7 +271,9 @@ Step 3. Scheduler compares values of the following parameters:
 
 
 Step 4 Scheduler
+
   Step 4.1 Updates the value of the following parameters:
+
   ```
   nonWorkingDaysSchedule.status = "planned"
   nonWorkingDaysSchedule.updateSymbolIntervalDate = nonWorkingDaysSchedule.startNonWorkingDayDate
@@ -279,27 +285,34 @@ Step 4 Scheduler
 Step 5 Scheduler:
 
   Step 5.1 Initiates a value change of objectSymbolId.objectInterval.endSecond
+
   ```
   objectSymbolId.objectInterval.endSecond == nonWorkingDaysSchedule.endSecond
   ```
 
   Step 5.2 Updates the value of the following parameters:
+
   ```
   nonWorkingDaysSchedule.updateSymbolIntervalDate = nonWorkingDaysSchedule.startNonWorkingDayDate
   nonWorkingDaysSchedule.status = "planned"
   ```
 
   Step 5.3 Initiates SymbolChangedEvent(objectSymbolId, CUDOperation.UPDATE) send
+
   Step 5.4 Go to step 1.
 
 
 Step 6 Scheduler checks nonWorkingDaysSchedule.isItInWorkingDays value
+
   Step 6.1 If nonWorkingDaysSchedule.isItInWorkingDays == false then go to step 7
+
   Step 6.2 If nonWorkingDaysSchedule.isItInWorkingDays == true then go to step 8
 
 
 Step 7 Scheduler
+
   Step7.1 Updates the value of the following parameters:
+
   ```
   nonWorkingDaysSchedule.status = "In progress"
   onWorkingDaysSchedule.updateSymbolIntervalDate = nonWorkingDaysSchedule.endNonWorkingDayDate
@@ -309,29 +322,37 @@ Step 7 Scheduler
 
 
 Step 8  Scheduler:
+
   Step 8.1 Initiates a value change of objectSymbolId.objectInterval.endSecond
+
   ```
   objectSymbolId.objectInterval.startSecond = nonWorkingDaysSchedule.startSecond
   objectSymbolId.objectInterval.endSecond = nonWorkingDaysSchedule.endSecondBase
   ```
 
   Step 8.2 Updates the value of the following parameters:
+
   ```
   nonWorkingDaysSchedule.status = "In progress"
   nonWorkingDaysSchedule.updateSymbolIntervalDate = nonWorkingDaysSchedule.endNonWorkingDayDate
   ```
 
   Step 8.3 Initiates SymbolChangedEvent(objectSymbolId, CUDOperation.UPDATE) send
+
   Step 8.4 Go to step 1.
 
 
 Step 9 Scheduler checks nonWorkingDaysSchedule.isItInWorkingDays value
+
   Step 9.1 If nonWorkingDaysSchedule.isItInWorkingDays == false then go to 10
+
   Step 9.2 If nonWorkingDaysSchedule.isItInWorkingDays == true then go to 11
 
 
 Step 10 Scheduler
+
   Step 10.1 Updates the value of the following parameters:
+
   ```
   nonWorkingDaysSchedule.status = "Done"
   ```
@@ -340,17 +361,21 @@ Step 10 Scheduler
 
 
 Step 11 Scheduler
+
   Step 11.1 Initiates a value change of objectSymbolId.objectInterval.endSecond
+
   ```
   objectSymbolId.objectInterval.startSecond = nonWorkingDaysSchedule.startSecondBase
   ```
 
   Step 11.2 Updates the value of the following parameters:
+
   ```
   nonWorkingDaysSchedule.status = "Done"
   ```
 
   Step 11.3 Initiates SymbolChangedEvent(objectSymbolId, CUDOperation.UPDATE) send
+
   Step 11.4 Go to step 1.
 
 <h3 id="3.7">Logging</h3>
