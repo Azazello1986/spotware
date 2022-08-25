@@ -55,24 +55,24 @@
 **Validation**
 
 1. Are all required parameters present in the request?
-  1. Yes - go to 2
-  2. No - Validation failed - sending code 400
+    1. Yes - go to 2
+    2. No - Validation failed - sending code 400
 
 2. Is the specified symbol found in the objectSymbol?
-  1. Yes - go to 3
-  2. No - Validation failed - sending code 404
+    1. Yes - go to 3
+    2. No - Validation failed - sending code 404
 
 3. Is the date correct?
-  1. Yes - go to 4
-  2. No - Validation failed - sending code 400
+    1. Yes - go to 4
+    2. No - Validation failed - sending code 400
 
 4. Is nonWorkingDaysScheduleCreate.date < now?
-  1. No - go to 5
-  2. Yes - Validation failed - sending code 406
+    1. No - go to 5
+    2. Yes - Validation failed - sending code 406
 
 5. Is created this non-working day?
-  1. No - go to 6
-  2. Yes - Validation failed - sending code 409
+    1. No - go to 6
+    2. Yes - Validation failed - sending code 409
 
 6. Validation passed
 
