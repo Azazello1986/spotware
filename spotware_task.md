@@ -17,7 +17,7 @@
   Providing the possibility of planning non-working days for trading instruments
 
 <h2 id="2"> Description</h2>
-  We create the entity "plan of non-working days" and methods of interaction with it. This will allow users to plan non-working days for trading instruments and will not affect processes that are in commercial operation.
+We create the entity "Plan of non-working days" and ways to interact with it. We create a scheduler entity that will monitor and make changes to the trading instrument's work schedule. This will allow users to schedule non-working days for trading instruments and will not affect processes that are in commercial operation.
 
 <h2 id="3">To do</h2>
 
