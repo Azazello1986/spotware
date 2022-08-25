@@ -230,7 +230,7 @@
 2. Is nonWorkingDaysScheduleUpdate.date == "Created"?
     1. Yes - go to 3.
     2. No - Validation failed - sending code 403
-    
+
 3. Validation passed
 
 
@@ -406,7 +406,7 @@ datetime, type, action{parameters}
 
 <h2 id="4">AT</h2>
 
-Here is full size table - [AT](https://egorzotkin.com/AT.html)
+*Table scrolls horizontally*
 
 <table>
  <tr>
